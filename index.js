@@ -25,7 +25,7 @@ app.use(todoRoutes)
 async function start() {
   try {
     await mongoose.connect(
-      mongo,
+      ENV [mongo],
       {
         useNewUrlParser: true,
         useFindAndModify: false
