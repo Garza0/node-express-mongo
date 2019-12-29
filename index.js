@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const todoRoutes = require('./routes/todos')
-
+require('dotenv').config()
 const PORT = process.env.PORT || 3000
 
 const app = express()
@@ -25,7 +25,7 @@ app.use(todoRoutes)
 async function start() {
   try {
     await mongoose.connect(
-      'mongodb+srv://andrey:1q2w3e4r@cluster0-5v0av.mongodb.net/test',
+      process.env.MONGO,
       {
         useNewUrlParser: true,
         useFindAndModify: false
@@ -40,3 +40,5 @@ async function start() {
 }
 
 start()
+
+process.on('error', console.log)
