@@ -40,5 +40,3 @@ async function start() {
 }
 
 start()
-
-process.on('error', console.log)
